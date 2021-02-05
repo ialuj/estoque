@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templating/template.xhtml">
+	<ui:define name="title">
+	    Estoque: Lista de Produtos
+	</ui:define>
+	<ui:define name="content">
+		<p:panel header="Listadeprodutos">
+			<h:form>
+				<p:dataTable value="#{listaProdutoController.listaProduto}"
+					var="pVar">
+					<p:column headerText="ID">
+						<h:outputText value="#{pVar.id}" />
+					</p:column>
+					<p:column headerText="Descrição">
+						<h:outputText value="#{pVar.descricao}" />
+					</p:column>
+					<p:column headerText="DataFabricação">
+						<h:outputText value="#{pVar.dataFabricacao}" />
+					</p:column>
+					<p:column headerText="Preço deVenda">
+						<h:outputText value="#{pVar.precoVenda}" />
+					</p:column>
+					<p:column>
+						<p:commandButton icon="fa fa-edit" value="Editar" process="@this"
+							action="#{listaProdutoController.editar(pVar)}" />
+					</p:column>
+					<p:column>
+						<p:commandButton icon="fa fa-remove" value="Remover"
+							process="@this" update="@form"
+							action="#{listaProdutoController.remover(pVar)}">
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+				<p:commandButton icon="fa fa-plus" value="#{msg.new}"
+					process="@this" action="#{listaProdutoController.criar()}" />
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

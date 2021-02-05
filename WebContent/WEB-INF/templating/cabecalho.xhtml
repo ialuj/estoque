@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<body>
+	<div>
+		<h:form>
+			<h:panelGrid columns="3" width="100%">
+				<h:graphicImage library="img" name="icone_estoque_50x50.png" />
+				<h:outputText value="#{msg.appHeader}" />
+				<p:selectOneMenu value="#{languageController.languageCode }"
+					valueChangeListener="#{languageController.onChangeLanguage}"
+					onchange="submit()">
+					<f:selectItem itemValue="pt" itemLabel="Português" />
+					<f:selectItem itemValue="en" itemLabel="English" />
+				</p:selectOneMenu>
+			</h:panelGrid>
+		</h:form>
+	</div>
+</body>
+</html>

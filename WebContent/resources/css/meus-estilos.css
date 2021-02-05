@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+body {
+	font-family: calibri, serif;
+	font-size: 12px;
+	padding: 2px;
+}
+
+#header {
+	width: 100%;
+	font-size: 24px;
+	line-height: 24px;
+	background-color: navy;
+	color: white;
+	padding: 2px
+}
+
+#footer {
+	width: 100%;
+	color: navy;
+	border: 1px solid navy;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+}

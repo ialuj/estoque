@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Estoque :: Cadastro de Produto</title>
+</h:head>
+
+<h:body>
+	<p:panel header="Cadastro de produto">
+		<h:form>
+			<h:panelGrid columns="3" cellpadding="5">
+				<p:outputLabel for="inDesc" value="Descrição" />
+				<p:inputText id="inDesc"
+					value="#{produtoController.produto.descricao}" size="30" />
+				<p:message for="inDesc" />
+				<p:outputLabel for="inDataFab" value="Data de Fabricação" />
+				<p:datePicker id="inDataFab"
+					value="#{produtoController.produto.dataFabricacao}"
+					pattern="dd/MM/yyyy" size="15" autocomplete="true" />
+				<p:message for="inDataFab" />
+				<p:outputLabel for="inPrecoVen" value="Preço de Venda" />
+				<p:inputNumber id="inPrecoVen"
+					value="#{produtoController.produto.precoVenda}" decimalPlaces="2"
+					thousandSeparator="." decimalSeparator="," size="10" />
+				<p:message for="inPrecoVen" />
+				<p:toolbar>
+					<f:facet name="left">
+						<p:commandButton value="Cadastrar" icon="fa fa-save"
+							action="#{produtoController.salvarProduto()}" update="@form" />
+					</f:facet>
+					<f:facet name="right">
+						<p:commandLink value="Ver Lista de Produtos"
+							action="#{produtoController.irParaListaProduto()}" process="@this" />
+					</f:facet>
+				</p:toolbar>
+				<p:messages globalOnly="true" />
+			</h:panelGrid>
+		</h:form>
+	</p:panel>
+</h:body>
+</html>
