@@ -4,10 +4,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd">
 	<named-query name="pesquisarProduto">
-	<query>
+		<query>
 	  select p 
 	  from Produto p 
 	  order by p.descricao
+	</query>
+	</named-query>
+	<named-query name="pesquisarUsuarioPorLoginSenha">
+		<query>
+	  select u 
+	  from Usuario u
+	  where u.login like '' and u.senha like ''
 	</query>
 	</named-query>
 </entity-mappings>

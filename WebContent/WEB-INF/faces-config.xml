@@ -18,5 +18,9 @@
 			<var>msg</var>
 		</resource-bundle>
 	</application>
+	
+	<lifecycle>
+	<phase-listener>controller.listener.LogPhaseListener</phase-listener>
+	</lifecycle>
 
 </faces-config>
