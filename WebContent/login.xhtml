@@ -12,7 +12,7 @@
 	    Estoque: Cadastro de Produto
 	</ui:define>
 	<ui:define name="content">
-		<p:panel header="#{msg.productRregistration}">
+		<p:panel header="#{msg.loginPage}">
 			<h:form>
 				<h:panelGrid columns="1" layout="grid"
 					styleClass="ui-panelgrid-blank">
@@ -27,6 +27,11 @@
 						<p:outputLabel for="inSenha" value="Senha" />
 						<p:inputText id="inSenha" value="#{loginController.senha}" />
 						<p:message for="inSenha" />
+					</h:panelGrid>
+					
+					<h:panelGrid>
+							<p:commandButton value="#{msg.login}" icon="fa fa-login"
+								action="#{loginController.efectuarLogin()}" process="@this" />
 					</h:panelGrid>
 					
 				</h:panelGrid>

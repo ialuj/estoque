@@ -14,7 +14,7 @@
 		<query>
 	  select u 
 	  from Usuario u
-	  where u.login like '' and u.senha like ''
+	  where u.login like :login and u.senha like :senha
 	</query>
 	</named-query>
 </entity-mappings>

@@ -34,19 +34,19 @@ public class LoginController implements Serializable {
 	}
 
 	public String efectuarLogin() {
-
+		
 		try {
 			usuario = usuarioServico.buscarUsuarioPeloLoginESenha(login, senha);
 
 			if (usuario != null) {
+				JSFUtil.build().setRequestObject("loggedUser", usuario);
 				return "produto";
 			}
 
 		} catch (Exception e) {
-			JSFUtil.build().addErrorMessage("Login ou Senha Incorrectos");
+			JSFUtil.build().addErrorMessage("Autenticacao Falhou. Tente novamente");
 		}
-		return null;
-
+		return "login";
 	}
 
 	public String getLogin() {
@@ -55,6 +55,14 @@ public class LoginController implements Serializable {
 
 	public String getSenha() {
 		return senha;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 }
